@@ -9,14 +9,14 @@ class TaskController extends Controller{
  
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks', ['tasks' => $tasks]);
+        $tasks = Task::latest('created_at')->get();
+        return view('tasks', compact('tasks'));
     }
 
 
     public function create()
     {
-        return redirect('tasks-new');
+        return view('tasks-new');
     }
 
     public function store(Request $request)
@@ -27,10 +27,10 @@ class TaskController extends Controller{
         ]);
         $validatedData['user_id'] = auth()->user()->id;
         $task = Task::create($validatedData);
+        
         return redirect('/tasks')->with('success', 'Task created successfully');
     }
-
-    // // Show the specified task
+   
 
     // // Show the form for editing the specified task
     // public function edit(Task $task)

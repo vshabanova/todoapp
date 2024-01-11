@@ -9,12 +9,13 @@ class Task extends Model
 {
     use HasFactory;
     protected $table = 'tasks';
-    protected $fillable = ['title', 'description', 'user_id'];
+    protected $fillable = ['title', 'description', 'user_id', 'created_at'];
     public $timestamps = true;
     public static function getAll()
     {
         return self::all();
     }
+    
 
     // Accessor method to get a formatted created_at date
     public function getFormattedCreatedAtAttribute()
@@ -33,4 +34,5 @@ class Task extends Model
     {
         return $query->where('completed', true);
     }
+    
 }

@@ -111,7 +111,7 @@
                   @csrf
 
                   <button type="submit" class="text-gray-400 bg-gray-700 rounded-md px-3 py-2 text-sm font-medium hover:text-white ">Log out</button>
-
+                </form>
               @endauth
 
               </div>
