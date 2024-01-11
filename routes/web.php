@@ -20,10 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks', function () {
-    return view('tasks');
-});
+Route::get('tasks', [TaskController::class, 'index'])->middleware('auth');
 Route::post('tasks', [TaskController::class, 'store'])->middleware('auth');
+Route::get('tasks-new', [TaskController::class, 'create'])->middleware('auth');
+Route::post('tasks/create', [TaskController::class, 'store'])->middleware('auth');
 
 
 Route::get('/contacts', function () {

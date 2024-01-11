@@ -2,7 +2,7 @@
 <footer
   class=" mt-20 text-center tex-gray-800 bg-white ">
   <div
-    class="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
+    class="flex items-center justify-center border-b-2 border-neutral-200 p-3 dark:border-neutral-500 lg:justify-between">
     <!-- Social network icons container -->
     <div class="flex justify-center">
       <a href="#!" class="mr-6 text-gray-800">
@@ -71,7 +71,7 @@
   </div>
 
   <!-- Main container div: holds the entire content of the footer, including four sections (Tailwind Elements, Products, Useful links, and Contact), with responsive styling and appropriate padding/margins. -->
-  <div class="mx-6 py-10 text-center md:text-left">
+  <div class="mx-6 py-5 text-center md:text-left">
     <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
 
     
@@ -81,17 +81,17 @@
           class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
           Products
         </h6>
-        <p class="mb-4">
+        <p class="mb-2">
           <a href="#!" class="text-gray-800"
             >Angular</a
           >
         </p>
-        <p class="mb-4">
+        <p class="mb-2">
           <a href="#!" class="text-gray-800"
             >React</a
           >
         </p>
-        <p class="mb-4">
+        <p class="mb-2">
           <a href="#!" class="text-gray-800"
             >Vue</a
           >
@@ -108,17 +108,17 @@
           class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
           Useful links
         </h6>
-        <p class="mb-4">
+        <p class="mb-2">
           <a href="#!" class="text-gray-800"
             >Pricing</a
           >
         </p>
-        <p class="mb-4">
+        <p class="mb-2">
           <a href="#!" class="text-gray-800"
             >Settings</a
           >
         </p>
-        <p class="mb-4">
+        <p class="mb-2">
           <a href="#!" class="text-gray-800"
             >Orders</a
           >
@@ -135,7 +135,7 @@
           class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
           Contact
         </h6>
-        <p class="mb-4 flex items-center justify-center md:justify-start">
+        <p class="mb-2 flex items-center justify-center md:justify-start">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -148,7 +148,7 @@
           </svg>
           Developer St. 37, Riga, Latvia
         </p>
-        <p class="mb-4 flex items-center justify-center md:justify-start">
+        <p class="mb-2 flex items-center justify-center md:justify-start">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -161,7 +161,7 @@
           </svg>
           todolistapp@todoapp.com
         </p>
-        <p class="mb-4 flex items-center justify-center md:justify-start">
+        <p class="mb-2 flex items-center justify-center md:justify-start">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
