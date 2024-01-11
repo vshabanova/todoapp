@@ -24,6 +24,7 @@ class TaskController extends Controller{
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
+            'deadline'=>'nullable'
         ]);
         $validatedData['user_id'] = auth()->user()->id;
         $task = Task::create($validatedData);

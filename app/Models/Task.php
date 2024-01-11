@@ -9,7 +9,7 @@ class Task extends Model
 {
     use HasFactory;
     protected $table = 'tasks';
-    protected $fillable = ['title', 'description', 'user_id', 'created_at'];
+    protected $fillable = ['title', 'description', 'user_id', 'created_at','deadline'];
     public $timestamps = true;
     public static function getAll()
     {
@@ -20,7 +20,7 @@ class Task extends Model
     // Accessor method to get a formatted created_at date
     public function getFormattedCreatedAtAttribute()
     {
-        return $this->created_at->format('Y-m-d H:i:s');
+        return $this->created_at->format('d-m-Y H:i:s');
     }
 
     // Mutator method to convert the title to uppercase before saving
