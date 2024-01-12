@@ -9,7 +9,7 @@ class Task extends Model
 {
     use HasFactory;
     protected $table = 'tasks';
-    protected $fillable = ['title', 'description', 'user_id', 'created_at','deadline'];
+    protected $fillable = ['title', 'description', 'user_id', 'created_at','deadline', 'completed'];
     public $timestamps = true;
     public static function getAll()
     {

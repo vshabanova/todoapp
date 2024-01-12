@@ -1,3 +1,4 @@
+
 <x-nav/>
 
 <x-header>
@@ -6,12 +7,24 @@
 </x-header>
   
 <x-main>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <div class="border border-gray-700 rounded m-3 mb-80 p-6">
         <h2 class="text-xl font-semibold mb-4">Existing Tasks</h2>
 
         @if(count($tasks) > 0)
         <ul>
-            @foreach($tasks as $task)
+            @foreach($tasks->sortBy(function($task) {
+                // Calculate days remaining for tasks with deadlines
+                $daysRemaining = $task->deadline ? now()->diffInDays(\Carbon\Carbon::parse($task->deadline), false) : null;
+            
+                // Sort by days remaining (in ascending order), completed status (in ascending order), and created_at (in descending order)
+                return [
+                    
+                    'completed' => $task->completed,
+                    'created_at' => $task->created_at->timestamp,
+                    'daysRemaining' => $daysRemaining,
+                ];
+            }) as $task)
                 @php
                     $taskColor = ''; // Default color
     
@@ -21,18 +34,22 @@
                     }
                 @endphp
     
-                <li class="border border-gray-900 bg-gray-100 hover:bg-gray-300 rounded px-8 pt-6 pb-4 m-4 {{ $taskColor }}">
+                <li class="border border-gray-900 bg-gray-100 hover:bg-gray-300 rounded px-8 pt-6 pb-4 m-4 {{$taskColor}}
+                    @if($task->completed) bg-green-300 hover:bg-green-400 @endif"
+                    onclick="completeTask({{ $task->id }})">
+                    {{-- Clickable checkmark --}}
+                    <div class="task-checkmark " onclick="completeTask({{ $task->id }})">
+                        {{ $task->completed ? '✔' : '◻' }}
+                    </div>
                     <div class="text-left text-large mb-2 font-bold">{{ $task->title }}</div>
                     <div class="text-left">{{ $task->description }}</div>
                     @if($task->deadline)
                         <div class="text-sm text-right mt-6">
-                            @if($daysRemaining < 6)
-                                <div>Remaining: {{ $daysRemaining }} days </div>
-                            @endif
+                            <div>Remaining: {{ $daysRemaining }} days </div>
                             <div>Deadline: {{ Carbon\Carbon::parse($task->deadline)->format('d-m-Y') }} </div>
                         </div>
                     @endif
-                    
+                    <!--NOT FINISHED --><button href="{{ route('tasks.edit', ['task' => $task->id]) }}" class="button">Edit Task</button>
                 </li>
             @endforeach
         </ul>

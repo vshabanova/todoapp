@@ -1,6 +1,6 @@
 <x-nav/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<x-header>
+<x-header >
     Contact us!
 </x-header>
   
@@ -26,11 +26,11 @@
     <div>
         <button class="border border-black text-white bg-blue-900 rounded mt-5 p-1 px-2 mb-6 hover:bg-blue-700 hover:text-white">Send us a message</button>
     </div>
-   <a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram" ></a>
-   <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook" ></a>
-   <a href="https://www.youtube.com/" target="_blank" class="fa fa-youtube" ></a>
-   <a href="https://www.twitter.com/" target="_blank" class="fa fa-twitter" ></a>
-   <a href="https://www.linkedin.com/" target="_blank" class="fa fa-linkedin" ></a>
+   <a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram mr-2" ></a>
+   <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook mr-2" ></a>
+   <a href="https://www.youtube.com/" target="_blank" class="fa fa-youtube mr-2" ></a>
+   <a href="https://www.twitter.com/" target="_blank" class="fa fa-twitter mr-2" ></a>
+   <a href="https://www.linkedin.com/" target="_blank" class="fa fa-linkedin mr-2" ></a>
    
 </x-main>
 

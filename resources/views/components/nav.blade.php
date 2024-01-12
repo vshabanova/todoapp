@@ -88,12 +88,13 @@
 
               @auth 
               {{-- TODO add a link on the name to redirect to users profile --}}
-             <div class="border rounded border-gray-600 flex items-center mr-4">
-              <a href="#"><span class="text-xs text-gray-400 font-bold uppercase pl-4">{{ auth()->user()->name}} </span></a>
+             <div class="border rounded-full border-gray-600 flex items-center mr-4 px-0">
+              
               <x-dropdown>
                   <x-slot name="trigger">
-                    <div class="relative w-full m-3 px-3">
-                        <button type="button"  class="relative absolute flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                    <div class="relative w-full ml-1 m-3 px-3">
+                        <button type="button"  class=" items-center inline-block relative absolute flex bg-gray-800 text-sm focus:outline-none focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                          <span class="text-xs text-gray-400 font-bold uppercase pl-4 ml-0 mr-6">{{ auth()->user()->name}} </span>
                           <span class="absolute -inset-1.5"></span>
                           <span class="sr-only">Open user menu</span>
                           <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">

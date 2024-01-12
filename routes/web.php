@@ -24,6 +24,12 @@ Route::get('tasks', [TaskController::class, 'index'])->middleware('auth');
 Route::post('tasks', [TaskController::class, 'store'])->middleware('auth');
 Route::get('tasks-new', [TaskController::class, 'create'])->middleware('auth');
 Route::post('tasks/create', [TaskController::class, 'store'])->middleware('auth');
+Route::post('/tasks/{task}/complete', [TaskController::class, 'complete'])->middleware('auth');
+Route::get('tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit')->middleware('auth');
+Route::patch('tasks/{task}', [TaskController::class, 'update'])->name('tasks.update')->middleware('auth');
+
+
+
 
 
 Route::get('/contacts', function () {
@@ -37,3 +43,4 @@ Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+
