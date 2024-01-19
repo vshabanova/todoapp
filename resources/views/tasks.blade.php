@@ -73,19 +73,7 @@
             @endforeach
         </ul>
 
-        <ul>
-            @if($task->completed)
-                <li class="border border-gray-900 rounded px-8 pt-6 pb-4 m-4 bg-green-300 hover:bg-green-400"
-                    onclick="completeTask({{ $task->id }})">
-                    {{-- Clickable checkmark --}}
-                    <div class="task-checkmark " onclick="completeTask({{ $task->id }})">
-                        {{ $task->completed ? '✔' : '◻' }}
-                    </div>
-                    <div class="text-left text-large mb-2 font-bold">{{ $task->title }}</div>
-                    <div class="text-left mb-6">{{ $task->description }}</div>
-                </li>
-            @endif
-        </ul>
+        
     @else
         <p class="mb-5">No tasks found so far.</p>
         <p class="mb-5">It's time to add them!</p>
