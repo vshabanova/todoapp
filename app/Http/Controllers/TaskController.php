@@ -9,10 +9,20 @@ class TaskController extends Controller{
  
     public function index()
     {
-        $tasks = Task::latest('created_at')->get();
+        $tasks = Task::all(); 
         return view('tasks', compact('tasks'));
     }
-
+    public function sortTasks()
+    {
+        return Task::all()->sortBy(function($task) {
+            // Sort by completed status (in ascending order), deadline (in ascending order), and created_at (in descending order)
+            return [
+                'completed' => $task->completed,
+                'deadline' => $task->deadline ?? PHP_INT_MAX, // Tasks without deadline go to the end
+                'created_at' => $task->created_at->timestamp,
+            ];
+        });
+    }
 
     public function create()
     {
@@ -47,12 +57,13 @@ class TaskController extends Controller{
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
-            'deadline'=>'nullable',
-            'completed' => 'boolean', 
+            'deadline' => 'nullable',
+            'completed' => 'boolean|nullable',
         ]);
-    
+        
         $task->update($validatedData);
         return redirect('/tasks')->with('success', 'Task updated successfully');
+        
     }
     public function complete(Task $task)
     {
@@ -61,14 +72,14 @@ class TaskController extends Controller{
         return response()->json(['success' => true]);
     }
 
-    // // Remove the specified task from the database
-    // public function destroy(Task $task)
-    // {
-    //     $task->delete();
+    // Remove the specified task from the database
+    public function destroy(Task $task)
+    {
+        $task->delete();
 
-    //     // Optionally, you can redirect the user to a different page
-    //     return redirect('/tasks')->with('success', 'Task deleted successfully');
-    // }
-    // }
+        // Optionally, you can redirect the user to a different page
+        return redirect('/tasks')->with('success', 'Task deleted successfully');
+    }
+    
 }
 
